@@ -53,4 +53,3 @@ module.exports = {
 	
 };
 
-//let webpack = require('webpack');

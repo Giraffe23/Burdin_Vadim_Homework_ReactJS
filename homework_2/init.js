@@ -1,31 +1,14 @@
-//import './author.js';
 
-let Author = require('./author');
+const Author = require('./author');
+const createComponent = require('./div');
 
 let authorInstance = new Author('Бурдин Вадим Станиславович');
     authorInstance.author; 
     authorInstance.greeting();
-
-
-
-
-module.exports = function() {
-    Author
-};
+	
+createComponent();
 
 
 
 
 
-/*
-//let nowDate = require ('./date');
-module.exports = function() {
-    nowDate
-};
-
-nowDate();
-
-function nowDate(id) {
-    id.innerHTML = Date();
-}
-*/
