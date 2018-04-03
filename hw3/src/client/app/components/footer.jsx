@@ -10,6 +10,6 @@ export default class Footer extends Component {
 				<li className="page-item"><a className="page-link" href="#">3</a></li>
 				<li className="page-item"><a className="page-link" href="#">Next</a></li>
 			</ul>
-		Name</footer>;
+		</footer>;
 	}
 }

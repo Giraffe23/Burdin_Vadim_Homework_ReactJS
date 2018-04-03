@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import { Button } from 'react-bootstrap';
+import { Button } from 'reactstrap';
 import 'bootstrap';
-import 'jquery';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import Header from './components/header';
