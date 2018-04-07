@@ -21,20 +21,20 @@ export default class PokemonsContainer extends PureComponent {
 		fetch('https://pokeapi.co/api/v2/pokemon/?limit=500')
 		.then(response => response.json())
 		.then(response => response = response.results)
-		.then(response => {
+		.then(pokemons => {
 			this.setState({
 				loading: false,
-				response
+				pokemons
 			});
 		});
 	
 	}
 
 	render() {
-		const { loading, response } = this.state;
+		const { loading, response, pokemons } = this.state;
 		return (
 		  <div>
-			{ loading ? 'Идет загрузка' : <PokemonsList pokemons={response}/> }
+			{ loading ? 'Идет загрузка' : <PokemonsList pokemons={pokemons}/> }
 		  </div>
 		);
 	}
