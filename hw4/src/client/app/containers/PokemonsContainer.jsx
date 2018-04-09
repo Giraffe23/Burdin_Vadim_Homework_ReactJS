@@ -18,7 +18,7 @@ export default class PokemonsContainer extends PureComponent {
 			loading: true
 		});
 
-		fetch('https://pokeapi.co/api/v2/pokemon/?limit=500')
+		fetch('https://pokeapi.co/api/v2/pokemon/?limit=100')
 		.then(response => response.json())
 		.then(response => response = response.results)
 		.then(pokemons => {

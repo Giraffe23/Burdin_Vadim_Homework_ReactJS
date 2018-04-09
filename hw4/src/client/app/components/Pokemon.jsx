@@ -14,7 +14,7 @@ export default class Pokemon extends PureComponent {
     };
 	
     render() {
-        let { name, url } = this.props,
+        const { name, url } = this.props,
 		    imgStyle = {
 				width: 75,
 				height: 75,
@@ -24,7 +24,7 @@ export default class Pokemon extends PureComponent {
 			
 		{/*--Определяем номер картинки--*/}
 		
-        let num = url.split(/\D+/)[2];
+        const num = url.split(/\D+/)[2];
 		
         return( 
 			<tr>
