@@ -5,16 +5,16 @@ export default class Pokemon extends PureComponent {
 	
     static propTypes = {
         url: PropTypes.string,
-	    name: PropTypes.string,
+        name: PropTypes.string,
     };
 	
-	static defaultProps = {
-		name: 'Имя не указано',
-		url: 'Адресс не указан',
-	};
+    static defaultProps = {
+        name: 'Имя не указано',
+        url: 'Адресс не указан',
+    };
 	
-	render() {
-		let { name, url } = this.props,
+    render() {
+        let { name, url } = this.props,
 		    imgStyle = {
 				width: 75,
 				height: 75,
@@ -24,14 +24,14 @@ export default class Pokemon extends PureComponent {
 			
 		{/*--Определяем номер картинки--*/}
 		
-		let num = url.split(/\D+/)[2];
+        let num = url.split(/\D+/)[2];
 		
-		return( 
+        return( 
 			<tr>
 				<th scope="row">{num}</th>
 				<td>{ name.toUpperCase() }</td>
 				<td><img src={`https://github.com/PokeAPI/sprites/blob/master/sprites/pokemon/${ num }.png?raw=true`} style={imgStyle}/></td>
 			</tr>
         );
-	}
+    }
 }
