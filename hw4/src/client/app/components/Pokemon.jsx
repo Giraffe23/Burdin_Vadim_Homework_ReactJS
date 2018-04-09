@@ -15,23 +15,23 @@ export default class Pokemon extends PureComponent {
 	
     render() {
         const { name, url } = this.props,
-		    imgStyle = {
-				width: 75,
-				height: 75,
-				WebkitTransition: "all",
-				msTransition: "all"
+            imgStyle = {
+                width: 75,
+                height: 75,
+                WebkitTransition: "all",
+                msTransition: "all"
 			};
 			
-		{/*--Определяем номер картинки--*/}
+    {/*--Определяем номер картинки--*/}
 		
         const num = url.split(/\D+/)[2];
 		
-        return( 
-			<tr>
-				<th scope="row">{num}</th>
-				<td>{ name.toUpperCase() }</td>
-				<td><img src={`https://github.com/PokeAPI/sprites/blob/master/sprites/pokemon/${ num }.png?raw=true`} style={imgStyle}/></td>
-			</tr>
+        return ( 
+            <tr>
+                <th scope="row">{num}</th>
+                <td>{ name.toUpperCase() }</td>
+                <td><img src={`https://github.com/PokeAPI/sprites/blob/master/sprites/pokemon/${ num }.png?raw=true`} style={imgStyle}/></td>
+            </tr>
         );
     }
 }
