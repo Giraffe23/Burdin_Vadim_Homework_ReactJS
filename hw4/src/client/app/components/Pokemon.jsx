@@ -3,14 +3,14 @@ import PropTypes from 'prop-types';
 
 export default class Pokemon extends PureComponent {
 	
-	static propTypes = {
-    	url: PropTypes.string,
-		name: PropTypes.string,
-	};
+    static propTypes = {
+        url: PropTypes.string,
+	    name: PropTypes.string,
+    };
 	
 	static defaultProps = {
-    name: 'Имя не указано',
-	url: 'Адресс не указан',
+		name: 'Имя не указано',
+		url: 'Адресс не указан',
 	};
 	
 	render() {
@@ -20,7 +20,6 @@ export default class Pokemon extends PureComponent {
 				height: 75,
 				WebkitTransition: "all",
 				msTransition: "all"
-			
 			};
 			
 		{/*--Определяем номер картинки--*/}
