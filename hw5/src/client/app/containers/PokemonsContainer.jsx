@@ -11,6 +11,7 @@ export default class PokemonsContainer extends PureComponent {
 
 		this.state = {
 			pokemons: [],
+			id: 1,
 			weight: '',
 			loading : false
 		};
@@ -23,34 +24,37 @@ export default class PokemonsContainer extends PureComponent {
 		});
 
 		fetch('https://pokeapi.co/api/v2/pokemon/?limit=20')
-		.then(response => response.json())
-		.then(response => response = response.results)
-		.then(pokemons => {
-			this.setState({
-				loading: false,
-				pokemons
-			});
-		});	
+			.then(response => response.json())
+			.then(response => response.results)
+			.then(pokemons => {
+				this.setState({
+					loading: false,
+					pokemons: pokemons.map(pokemon => ({
+						id: pokemon.url.split(/\D+/)[2],
+						...pokemon
+					}))
+				});
+			});	
 	}
 	
 	handleDesc = (url) => {
 		
-		let { desc, pokemons, name } = this.state;
+		let { pokemons, id, name } = this.state;
 		
 		this.setState({
 			loading: true
 		});
 		
 		fetch(url)
-		.then(response => response.json())
-		.then(response => response.weight)
-		.then(weight => {
-			this.setState({
-				loading: false,
-				weight,
-				pokemons: pokemons.map(item => item.url == url ? 
-					item = {url : item.url, name : item.name += ` >>> POKEMONS WEIGHT: ${weight}<<<`} : item)
-			});
+			.then(response => response.json())
+			.then(response => response.weight)
+			.then(weight => {
+				this.setState({
+					loading: false,
+					weight,
+					pokemons: pokemons.map(item => item.url == url ? 
+					item = {id : item.id, url : item.url, name : item.name += ` >>> POKEMONS WEIGHT: ${weight}<<<`} : item)
+				});
 		});
 		
 	}

@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 export default class Pokemon extends PureComponent {
 	
 	static propTypes = {
+		id: PropTypes.number,
 		url: PropTypes.string,
 		name: PropTypes.string,
 		onImageClick: PropTypes.func
@@ -23,23 +24,19 @@ export default class Pokemon extends PureComponent {
 	};
 	
 	render() {
-		const { name, url } = this.props,
+		const { id, name, url } = this.props,
 		imgStyle = {
 			width: 75,
 			height: 75,
 			WebkitTransition: "all",
 			msTransition: "all"
 		};
-			
-	{/*--Определяем номер картинки--*/}
-		
-		const num = url.split(/\D+/)[2];
-			
+
 		return( 
 			<tr>
-				<th scope="row" >{num}</th>
+				<th scope="row" >{id}</th>
 				<td>{ name }</td>
-				<td><img onClick={this.clickHandler} src={`https://github.com/PokeAPI/sprites/blob/master/sprites/pokemon/${num}.png?raw=true`} style={imgStyle}/></td>
+				<td><img onClick={this.clickHandler} src={`https://github.com/PokeAPI/sprites/blob/master/sprites/pokemon/${id}.png?raw=true`} style={imgStyle}/></td>
 				<td>{ url }</td>
 			</tr>	
 		);

@@ -8,8 +8,9 @@ export default class PokemonsList extends PureComponent {
 	
 	static propTypes = {
 		pokemons: PropTypes.arrayOf({
-			url: PropTypes.string,
+			id: PropTypes.number,
 			name: PropTypes.string,
+			url: PropTypes.string
 		}),
 		showDesc: PropTypes.func
 	};
@@ -28,7 +29,7 @@ export default class PokemonsList extends PureComponent {
 
 	render() {
 		
-		const { pokemons, url } = this.props;
+		const { pokemons } = this.props;
 		
 		return (
 			<Table dark hover>
