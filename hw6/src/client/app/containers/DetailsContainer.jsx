@@ -28,8 +28,8 @@ export default class DetailsContainer extends PureComponent {
 			.then((pokemon) => {
 				this.setState({
 					pokemon
+				});
 			});
-		});
 	}
  
 	componentDidMount() {
