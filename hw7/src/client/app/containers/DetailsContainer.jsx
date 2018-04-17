@@ -6,11 +6,16 @@ import Details from '../components/Details';
 import { getDetails } from '../actions/getDetails';
 
 class DetailsContainer extends PureComponent {
+  constructor(props) {
+    super(props);
+  }
+
   render() {
     const { pokemon, load } = this.props;
+    //const id = this.props.match.params.id;
     return (
       <div>
-        <Details onLoadClick={load} pokemon={this.props.pokemon} />
+        <Details onLoadClick={load} pokemon={this.props.pokemon} id={this.props.id} />
       </div>
     );
   }
@@ -18,15 +23,15 @@ class DetailsContainer extends PureComponent {
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    pokemon: state.pokemon.pokemon,
-    id: ownProps.match.params.id
+    pokemon: state.pokemon
   };
 };
 
 const mapDispatchToProps = (dispatch, ownProps) => {
+  let id = ownProps.match.params.id;
+  console.log(id);
   return {
-    id: ownProps.match.params.id,
-    load: () => getDetails(dispatch)
+    load: id => getDetails(dispatch, id)
   };
 };
 
