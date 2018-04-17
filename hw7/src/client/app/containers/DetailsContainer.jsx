@@ -9,13 +9,17 @@ class DetailsContainer extends PureComponent {
   constructor(props) {
     super(props);
   }
+  handlerButton = (id) => () => {
+    const { load } = this.props;
+    load(id);
+  }
 
   render() {
     const { pokemon, load } = this.props;
-    //const id = this.props.match.params.id;
+    const id = this.props.match.params.id;
     return (
       <div>
-        <Details onLoadClick={load} pokemon={this.props.pokemon} id={this.props.id} />
+        <Details onLoadClick={this.handlerButton(id)} pokemon={this.props.pokemon} id={this.props.id} />
       </div>
     );
   }
@@ -23,13 +27,11 @@ class DetailsContainer extends PureComponent {
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    pokemon: state.pokemon
+    pokemon: state.pokemon.pokemon
   };
 };
 
 const mapDispatchToProps = (dispatch, ownProps) => {
-  let id = ownProps.match.params.id;
-  console.log(id);
   return {
     load: id => getDetails(dispatch, id)
   };
