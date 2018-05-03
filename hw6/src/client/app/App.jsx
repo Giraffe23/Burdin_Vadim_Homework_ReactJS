@@ -7,9 +7,9 @@ import PokemonsList from './containers/PokemonsContainer';
 import Details from './containers/DetailsContainer';
 
 export default class App extends Component {
-	
+
 	render() {
-	
+
 		return (
 			<div>
 				<Switch>
